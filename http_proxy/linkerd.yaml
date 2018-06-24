@@ -1,0 +1,12 @@
+admin:
+  ip: 0.0.0.0
+  port: 9990
+
+routers:
+- protocol: http
+  # /svc/api is a HOST name, you should consider it as a remote service host name rather than a path
+  # so you must set environment variable 'http_proxy'
+  dtab: /svc/api => /$/inet/<192.168.1.5>/9081
+  servers:
+  - ip: 0.0.0.0
+    port: 8080
